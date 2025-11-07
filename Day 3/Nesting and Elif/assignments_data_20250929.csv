@@ -1,0 +1,5 @@
+course,title,due_date,days_left,priority,status,urgency
+Mathematics,Linear Algebra Problem Set,2025-10-08,9,Medium,In Progress,NORMAL
+Machine Learning,Classification Algorithm,2025-10-12,13,Low,Planning,NORMAL
+Data Structures,Binary Tree Implementation,2025-10-15,16,High,Not Started,NORMAL
+Web Development,React Portfolio Project,2025-10-20,21,High,Not Started,NORMAL
