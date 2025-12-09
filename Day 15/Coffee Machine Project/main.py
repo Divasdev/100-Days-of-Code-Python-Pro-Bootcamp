@@ -47,14 +47,18 @@ while machine_on:
 
 
   elif user_choice=="report":
-       print("Water:",resources["water"],"\nMilk:",resources["milk"],"\nCoffee:",resources["coffee"])
+      print(f"Water: {resources['water']}ml")
+      print(f"Milk: {resources['milk']}ml")
+      print(f"Coffee: {resources['coffee']}g")
+      print(f"Money: ${money:.2f}")
 
-       print("Money:$",money)
+
   # Check if resources are sufficient for the selected drink
 
   else:
     if user_choice in MENU:
       # show ingredients for the chosen drink
+
       print(MENU[user_choice]["ingredients"])
 
       # Check resources for the chosen drink
