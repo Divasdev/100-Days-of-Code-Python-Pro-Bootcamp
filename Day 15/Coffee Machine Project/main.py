@@ -31,6 +31,8 @@ resources = {
     "coffee": 100,
 }
 
+money=0.0
+
 
 # Handle the first user input
 machine_on=True
@@ -61,8 +63,11 @@ while machine_on:
   pennies_coin = int(input("Enter Your Pennies Coins:\n"))
 
   user_total= (quarter_coin*0.25) + (dimes_coin*0.10) + (nickels_coin*0.05) +(pennies_coin*0.01)
-  user_total_coins=round(user_total,3)
+  user_total_coins=round(user_total,2)
   print(f"You inserted:$",user_total_coins)
+
+
+
 
 
 
