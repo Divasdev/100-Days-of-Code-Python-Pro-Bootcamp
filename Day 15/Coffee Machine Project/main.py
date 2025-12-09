@@ -22,6 +22,7 @@ MENU = {
         },
         "cost": 3.0,
     }
+
 }
 
 resources = {
@@ -29,4 +30,8 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+
+
+
 
