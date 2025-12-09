@@ -53,62 +53,43 @@ while machine_on:
   # Check if resources are sufficient for the selected drink
 
   else:
-      if user_choice=="espresso":
-            print(MENU["espresso"]["ingredients"])
+    if user_choice in MENU:
+      # show ingredients for the chosen drink
+      print(MENU[user_choice]["ingredients"])
 
-      elif user_choice=="latte":
-                print(MENU["latte"]["ingredients"])
-
-      elif user_choice=="cappuccino":
-                print(MENU["cappuccino"]["ingredients"])
+      # Check resources for the chosen drink
+      ingredients = MENU[user_choice]["ingredients"]
+      for item, required in ingredients.items():
+        if resources.get(item, 0) < required:
+          print(f"Sorry there is not enough {item}.")
+          break
       else:
-              print("Enough Resources")
-      print("Please Insert Coins")
-      quarter_coin=int(input("Enter Your Quarter Coins:\n"))
-      dimes_coin = int(input("Enter Your Dimes Coins:\n"))
-      nickels_coin = int(input("Enter Your Nickel Coins:\n"))
-      pennies_coin = int(input("Enter Your Pennies Coins:\n"))
+        # All resources sufficient — process coins
+        print("Please Insert Coins")
+        quarter_coin = int(input("Enter Your Quarter Coins:\n"))
+        dimes_coin = int(input("Enter Your Dimes Coins:\n"))
+        nickels_coin = int(input("Enter Your Nickel Coins:\n"))
+        pennies_coin = int(input("Enter Your Pennies Coins:\n"))
 
-      user_total= (quarter_coin*0.25) + (dimes_coin*0.10) + (nickels_coin*0.05) +(pennies_coin*0.01)
-      user_total_coins=round(user_total,2)
-      print(f"You inserted:$",user_total_coins)
+        user_total = (quarter_coin * 0.25) + (dimes_coin * 0.10) + (nickels_coin * 0.05) + (pennies_coin * 0.01)
+        user_total_coins = round(user_total, 2)
+        print(f"You inserted: ${user_total_coins:.2f}")
 
-      cost=MENU[user_choice]["cost"]
-
-      if user_total_coins<cost:
-          print("Sorry that's not enough money.Money Refunded.")
-      elif user_total_coins>=cost:
-          change=round(user_total_coins - cost,2)
+        cost = MENU[user_choice]["cost"]
+        if user_total_coins < cost:
+          print("Sorry that's not enough money. Money refunded.")
+        else:
+          change = round(user_total_coins - cost, 2)
+          money += cost
+          if change > 0:
+            print(f"Here is ${change:.2f} dollars in change.")
           print("Transaction Successful.")
-          money+=cost
-          print("Money",money)
+          print(f"Money: ${money:.2f}")
 
           # Deduct the ingredients
           for item, amount in MENU[user_choice]["ingredients"].items():
-              resources[item] -= amount
+            resources[item] -= amount
 
           print(f"Here is your {user_choice}. Enjoy!")
-
-
-
-
-
-
-          if change>0:
-              print(f"Here is {change} dollars in change.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    else:
+      print("Invalid selection.")
