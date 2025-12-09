@@ -1,3 +1,5 @@
+from idlelib.configdialog import changes
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -37,34 +39,52 @@ money=0.0
 # Handle the first user input
 machine_on=True
 while machine_on:
-  user_choice=input("What would you like? (espresso/latte/cappuccino):")
+  user_choice=input("What would you like? (espresso/latte/cappuccino):").lower()
   if user_choice=="off":
       machine_on=False
       #Implement the "report" command
+
+
+
   elif user_choice=="report":
        print("Water:",resources["water"],"\nMilk:",resources["milk"],"\nCoffee:",resources["coffee"])
-  #: Check if resources are sufficient for the selected drink
+       print("Money:$",money)
+  # Check if resources are sufficient for the selected drink
 
   else:
       if user_choice=="espresso":
             print(MENU["espresso"]["ingredients"])
 
-      if user_choice=="latte":
+      elif user_choice=="latte":
                 print(MENU["latte"]["ingredients"])
 
-      if user_choice=="cappuccino":
+      elif user_choice=="cappuccino":
                 print(MENU["cappuccino"]["ingredients"])
       else:
-         print("Enough Resources")
-  print("Please Insert Coins")
-  quarter_coin=int(input("Enter Your Quarter Coins:\n"))
-  dimes_coin = int(input("Enter Your Dimes Coins:\n"))
-  nickels_coin = int(input("Enter Your Nickel Coins:\n"))
-  pennies_coin = int(input("Enter Your Pennies Coins:\n"))
+              print("Enough Resources")
+              print("Please Insert Coins")
+              quarter_coin=int(input("Enter Your Quarter Coins:\n"))
+              dimes_coin = int(input("Enter Your Dimes Coins:\n"))
+              nickels_coin = int(input("Enter Your Nickel Coins:\n"))
+              pennies_coin = int(input("Enter Your Pennies Coins:\n"))
 
-  user_total= (quarter_coin*0.25) + (dimes_coin*0.10) + (nickels_coin*0.05) +(pennies_coin*0.01)
-  user_total_coins=round(user_total,2)
-  print(f"You inserted:$",user_total_coins)
+              user_total= (quarter_coin*0.25) + (dimes_coin*0.10) + (nickels_coin*0.05) +(pennies_coin*0.01)
+              user_total_coins=round(user_total,2)
+              print(f"You inserted:$",user_total_coins)
+
+              cost=MENU[user_choice]["cost"]
+
+              if user_total_coins<cost:
+                  print("Sorry that's not enough money.Money Refunded.")
+              elif user_total_coins>=cost:
+                  change=round(user_total_coins - cost,2)
+                  print("Transaction Successful.")
+                  money += cost
+                  if change>0:
+                      print(f"Here is {change} dollars in change.")
+
+
+
 
 
 
