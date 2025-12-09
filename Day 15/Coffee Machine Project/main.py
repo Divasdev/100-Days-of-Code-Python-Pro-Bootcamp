@@ -32,6 +32,24 @@ resources = {
 }
 
 
+# Handle the first user input
+machine_on=True
+while machine_on:
+  user_choice=input("What would you like? (espresso/latte/cappuccino):")
+  if user_choice=="off":
+      machine_on=False
+  else:
+      print(user_choice)
+
+
+
+
+
+
+
+
+
+
 
 
 
