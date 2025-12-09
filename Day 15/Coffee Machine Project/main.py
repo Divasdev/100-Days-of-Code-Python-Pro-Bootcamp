@@ -38,8 +38,12 @@ while machine_on:
   user_choice=input("What would you like? (espresso/latte/cappuccino):")
   if user_choice=="off":
       machine_on=False
+      #Implement the "report" command
+  elif user_choice=="report":
+       print("Milk:",resources["milk"],"\nWater:",resources["water"],"\ncoffee:",resources["coffee"])
   else:
       print(user_choice)
+
 
 
 
