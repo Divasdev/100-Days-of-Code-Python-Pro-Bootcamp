@@ -43,24 +43,17 @@ while machine_on:
        print("Water:",resources["water"],"\nMilk:",resources["milk"],"\nCoffee:",resources["coffee"])
   #: Check if resources are sufficient for the selected drink
 
-  elif user_choice=="espresso":
-        print(MENU["espresso"]["ingredients"])
-  elif user_choice=="latte":
-            print(MENU["latte"]["ingredients"])
-  elif user_choice=="cappuccino":
-            print(MENU["cappuccino"]["ingredients"])
-
-
-
   else:
-      print(user_choice)
+      if user_choice=="espresso":
+            print(MENU["espresso"]["ingredients"])
 
+      if user_choice=="latte":
+                print(MENU["latte"]["ingredients"])
 
-
-
-
-
-
+      if user_choice=="cappuccino":
+                print(MENU["cappuccino"]["ingredients"])
+      else:
+         print("Enough Resources")
 
 
 
