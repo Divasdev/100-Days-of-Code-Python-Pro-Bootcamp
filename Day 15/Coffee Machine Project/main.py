@@ -40,7 +40,18 @@ while machine_on:
       machine_on=False
       #Implement the "report" command
   elif user_choice=="report":
-       print("Milk:",resources["milk"],"\nWater:",resources["water"],"\ncoffee:",resources["coffee"])
+       print("Water:",resources["water"],"\nMilk:",resources["milk"],"\nCoffee:",resources["coffee"])
+  #: Check if resources are sufficient for the selected drink
+
+  elif user_choice=="espresso":
+        print(MENU["espresso"]["ingredients"])
+  elif user_choice=="latte":
+            print(MENU["latte"]["ingredients"])
+  elif user_choice=="cappuccino":
+            print(MENU["cappuccino"]["ingredients"])
+
+
+
   else:
       print(user_choice)
 
